@@ -1,0 +1,6 @@
+[submodule "PoissonRecon"]
+	path = PoissonRecon
+	url = https://github.com/mkazhdan/PoissonRecon.git
+[submodule "librply"]
+	path = librply
+	url = https://github.com/lkiesow/librply.git

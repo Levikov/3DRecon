@@ -1,9 +1,9 @@
-Repository for 3D Reconstruction Implementations
-================================================
-# Introduction
+# Repository for 3D Reconstruction Implementations
 
-# Dependencies
+## Introduction
+
+## Dependencies
+
 |Name|Version|
 |-|-|
-|
-Copy Rights by Victor Levitin 2018
+Copy Right © 2018-2018 Victor Levitin
