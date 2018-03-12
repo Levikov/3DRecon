@@ -2,17 +2,21 @@
 INC_PATH=C:\MinGW\include
 LIB_PATH=C:\MinGW\lib
 SRC_PATH=.\librply\src\lib
+TOOL_PATH=.\librply\src\tools
 
 lib: obj
-	mkdir .\librply\bin
 	gcc -shared -Wl,-soname,librply.so -o .\librply\bin\librply.so .\librply\obj\rply.o
 
-obj:
-	mkdir .\librply\obj
+obj:  
 	gcc -Wall -c -fPIC ${SRC_PATH}\rply.c -o .\librply\obj\rply.o
 
+tools:
+	gcc ${TOOL_PATH}\dump.c       ${SRC_PATH}\rply.c -I${SRC_PATH} -Llibrply\bin -o .\librply\bin\dump
+	gcc ${TOOL_PATH}\convert.c    ${SRC_PATH}\rply.c -I${SRC_PATH} -Llibrply\bin -o .\librply\bin\convert
+	gcc ${TOOL_PATH}\sconvert.c   ${SRC_PATH}\rply.c -I${SRC_PATH} -Llibrply\bin -o .\librply\bin\sconvert
+	gcc ${TOOL_PATH}\create_ply.c ${SRC_PATH}\rply.c -I${SRC_PATH} -Llibrply\bin -o .\librply\bin\create_ply
+	cp ${TOOL_PATH}\input.ply librply\bin\input.ply
+
 clean:
-	del -Force .\librply\bin 
-	del -Force .\librply\obj
-	rmdir -Force .\librply\bin 
-	rmdir -Force .\librply\obj
+	del .\librply\bin\*
+	del .\librply\obj\*
